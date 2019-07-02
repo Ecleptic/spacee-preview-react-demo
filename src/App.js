@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import Weather from 'ecleptic-react-weather-component'
+import React, { useEffect, useState } from 'react'
+import 'ecleptic-web-weather-component'
+
 import './App.css'
+
+import ArrowLeft from './assets/arrow-left.svg'
+import ExperienceList from './components/ExperienceList'
+import PreviewClass from './components/PreviewClass'
+import { BackButton } from './StyledComponents/BackButton'
 import { GlobalStyle } from './StyledComponents/GlobalStyle'
 import { Header } from './StyledComponents/Header'
-import ExperienceList from './components/ExperienceList'
 import { postData } from './utils/postData'
-import PreviewClass from './components/PreviewClass'
 
 function App() {
 	const [token, setToken] = useState('')
@@ -19,8 +25,24 @@ function App() {
 		<>
 			<GlobalStyle />
 			<div className="App">
+				<Header>
+					{currentExperience ? (
+						<BackButton
+							type="button"
+							onClick={() => {
+								setCurrentExperience(null)
+							}}
+						>
+							<img src={ArrowLeft} alt="Back Arrow" />
+						</BackButton>
+					) : (
+						<ecleptic-weather-component zip={process.env.REACT_APP_ZIP} APIKEY={process.env.REACT_APP_WEATHER_APIKEY} />
+					)}
+					<h2>Spacee Preview</h2>
+					<Weather zip={process.env.REACT_APP_ZIP} APIKEY={process.env.REACT_APP_WEATHER_APIKEY} orderFlipped={true} />
+				</Header>
 				{token && !currentExperience ? <ExperienceList token={token} setCurrentExperience={setCurrentExperience} /> : null}
-				<PreviewClass />
+				{token && currentExperience ? <PreviewClass currentExperience={currentExperience} /> : null}
 			</div>
 		</>
 	)
