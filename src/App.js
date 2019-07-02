@@ -4,6 +4,7 @@ import { GlobalStyle } from './StyledComponents/GlobalStyle'
 import { Header } from './StyledComponents/Header'
 import ExperienceList from './components/ExperienceList'
 import { postData } from './utils/postData'
+import PreviewClass from './components/PreviewClass'
 
 function App() {
 	const [token, setToken] = useState('')
@@ -19,6 +20,7 @@ function App() {
 			<GlobalStyle />
 			<div className="App">
 				{token && !currentExperience ? <ExperienceList token={token} setCurrentExperience={setCurrentExperience} /> : null}
+				<PreviewClass />
 			</div>
 		</>
 	)
