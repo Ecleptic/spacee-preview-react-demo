@@ -18,9 +18,9 @@ function App() {
 
 	useEffect(() => {
 		getToken()
-
 		return () => {}
 	}, [])
+
 	return (
 		<>
 			<GlobalStyle />
