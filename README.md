@@ -14,3 +14,4 @@ REACT_APP_IMAGE_BASEURL=""
 ```
 
 > The weather api key is from openweathermap.org
+
