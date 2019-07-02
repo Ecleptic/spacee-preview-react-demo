@@ -16,7 +16,7 @@ export function ExperienceList(props) {
 			{experiences &&
 				experiences.map(experience => {
 					return (
-						<StyledListItem key={experience.EngagementId}>
+						<StyledListItem key={experience.EngagementId} onClick={() => console.log({ experience })}>
 							{experience.Asset && <img src={`${process.env.REACT_APP_IMAGE_BASEURL}/${experience.Asset}`} alt="" width="100px" />}
 							<StyledListButton> {experience.Name}</StyledListButton>
 						</StyledListItem>
