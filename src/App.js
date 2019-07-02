@@ -20,6 +20,7 @@ function App() {
 		getToken()
 		return () => {}
 	}, [])
+
 	return (
 		<>
 			<GlobalStyle />
